@@ -1,0 +1,190 @@
+; Symbol table GLOBAL
+; Function: INT main([])
+
+; Symbol table main
+; name x type INT location -4
+; name y type FLOAT location -8
+
+Function main
+	Statement list:
+		AssignNode:
+			VarNode: y
+			FloatLitNode: 2.3
+		AssignNode:
+			VarNode: x
+			BinaryOpNode: MUL
+				BinaryOpNode: MUL
+					IntLitNode: 2
+					VarNode: y
+				IntLitNode: 2
+		Write: 
+			VarNode: x
+		AssignNode:
+			VarNode: x
+			BinaryOpNode: MUL
+				CastNode: INT
+					BinaryOpNode: MUL
+						IntLitNode: 2
+						VarNode: y
+				IntLitNode: 2
+		Write: 
+			VarNode: x
+		Return: 
+			IntLitNode: 0
+.section .text
+;Current temp: null
+;IR Code: 
+MV fp, sp
+JR func_main
+HALT
+
+func_main:
+SW fp, 0(sp)
+MV fp, sp
+ADDI sp, sp, -4
+ADDI sp, sp, -8
+SW t1, 0(sp)
+ADDI sp, sp, -4
+SW t2, 0(sp)
+ADDI sp, sp, -4
+SW t3, 0(sp)
+ADDI sp, sp, -4
+SW t4, 0(sp)
+ADDI sp, sp, -4
+SW t5, 0(sp)
+ADDI sp, sp, -4
+SW t6, 0(sp)
+ADDI sp, sp, -4
+SW t7, 0(sp)
+ADDI sp, sp, -4
+SW t8, 0(sp)
+ADDI sp, sp, -4
+SW t9, 0(sp)
+ADDI sp, sp, -4
+SW t10, 0(sp)
+ADDI sp, sp, -4
+SW t11, 0(sp)
+ADDI sp, sp, -4
+SW t12, 0(sp)
+ADDI sp, sp, -4
+SW t13, 0(sp)
+ADDI sp, sp, -4
+SW t14, 0(sp)
+ADDI sp, sp, -4
+SW t15, 0(sp)
+ADDI sp, sp, -4
+SW t16, 0(sp)
+ADDI sp, sp, -4
+SW t17, 0(sp)
+ADDI sp, sp, -4
+FSW f1, 0(sp)
+ADDI sp, sp, -4
+FSW f2, 0(sp)
+ADDI sp, sp, -4
+FSW f3, 0(sp)
+ADDI sp, sp, -4
+FSW f4, 0(sp)
+ADDI sp, sp, -4
+FSW f5, 0(sp)
+ADDI sp, sp, -4
+FSW f6, 0(sp)
+ADDI sp, sp, -4
+FSW f7, 0(sp)
+ADDI sp, sp, -4
+FSW f8, 0(sp)
+ADDI sp, sp, -4
+FSW f9, 0(sp)
+ADDI sp, sp, -4
+ADDI t1, fp, -8
+FIMM.S f1, 2.3
+FSW f1, 0(t1)
+ADDI t5, fp, -4
+LI t2, 2
+ADDI t3, fp, -8
+FLW f2, 0(t3)
+IMOVF.S f3, t2
+FMUL.S f4, f3, f2
+LI t4, 2
+IMOVF.S f5, t4
+FMUL.S f6, f4, f5
+FMOVI.S t6, f6
+SW t6, 0(t5)
+ADDI t7, fp, -4
+LW t8, 0(t7)
+PUTI t8
+ADDI t14, fp, -4
+LI t9, 2
+ADDI t10, fp, -8
+FLW f7, 0(t10)
+IMOVF.S f8, t9
+FMUL.S f9, f8, f7
+FMOVI.S t11, f9
+LI t12, 2
+MUL t13, t11, t12
+SW t13, 0(t14)
+ADDI t15, fp, -4
+LW t16, 0(t15)
+PUTI t16
+LI t17, 0
+SW t17, 8(fp)
+J func_ret_main
+func_ret_main:
+ADDI sp, sp, 4
+FLW f9, 0(sp)
+ADDI sp, sp, 4
+FLW f8, 0(sp)
+ADDI sp, sp, 4
+FLW f7, 0(sp)
+ADDI sp, sp, 4
+FLW f6, 0(sp)
+ADDI sp, sp, 4
+FLW f5, 0(sp)
+ADDI sp, sp, 4
+FLW f4, 0(sp)
+ADDI sp, sp, 4
+FLW f3, 0(sp)
+ADDI sp, sp, 4
+FLW f2, 0(sp)
+ADDI sp, sp, 4
+FLW f1, 0(sp)
+ADDI sp, sp, 4
+LW t17, 0(sp)
+ADDI sp, sp, 4
+LW t16, 0(sp)
+ADDI sp, sp, 4
+LW t15, 0(sp)
+ADDI sp, sp, 4
+LW t14, 0(sp)
+ADDI sp, sp, 4
+LW t13, 0(sp)
+ADDI sp, sp, 4
+LW t12, 0(sp)
+ADDI sp, sp, 4
+LW t11, 0(sp)
+ADDI sp, sp, 4
+LW t10, 0(sp)
+ADDI sp, sp, 4
+LW t9, 0(sp)
+ADDI sp, sp, 4
+LW t8, 0(sp)
+ADDI sp, sp, 4
+LW t7, 0(sp)
+ADDI sp, sp, 4
+LW t6, 0(sp)
+ADDI sp, sp, 4
+LW t5, 0(sp)
+ADDI sp, sp, 4
+LW t4, 0(sp)
+ADDI sp, sp, 4
+LW t3, 0(sp)
+ADDI sp, sp, 4
+LW t2, 0(sp)
+ADDI sp, sp, 4
+LW t1, 0(sp)
+MV sp, fp
+LW fp, 0(fp)
+RET
+
+
+
+.section .strings
